@@ -1,6 +1,11 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: default
 ---
+<h1>What we do for artists</h1>
+<p>ロレム・イプサムは、デザインや出版業界で一般的に使用されているプレースホルダー テキストの一種で、ページ上のスペースを埋めて最終的なコンテンツがどのように見えるかの印象を与えます。日本語のロレム・イプサムは、ローマの哲学者キケロのラテン語のテキストに由来し、1960年代から使用されています。このテキストは意味をなさず、特定の意味を伝えないため、デザイナーは意味のあるコンテンツに気を取られることなく、レイアウトや視覚的な要素に集中できます。</p>
+
+<h1>Why we do it best</h1>
+<p>プレースホルダー テキストは、デザイナーが実際のコンテンツに気を取られることなくレイアウトを視覚化するために不可欠です。これにより、美学と構造に集中でき、バランスの取れたプレゼンテーションが保証されます。すっきりとしたレイアウトは創造性を高め、タイポグラフィ、色、間隔の実験を容易にします。この方法は、デザイン プロセスを合理化し、関係者がプロジェクトの可能性を思い描くのに役立ちます。</p>
+
+<h1>How to work with us</h1>
+<p>Email us at <a href="mailto:{{ site.emailurl }}">{{ site.email }}</a>.</p>

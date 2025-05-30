@@ -22,8 +22,9 @@ domain: bigfetus.co.jp
 url: http://bigfetus.co.jp
 baseurl: "" # the subpath of your site, e.g. /blog
 
-title: Big Fetus, LLC / ビッグフィータス合同会社
+title: ビッグフィータス
 email: info@bigfetus.co.jp
+emailurl: "&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#103;&#102;&#101;&#116;&#117;&#115;&#046;&#099;&#111;&#046;&#106;&#112;"
 description: >- # ignore newlines until the next property
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
