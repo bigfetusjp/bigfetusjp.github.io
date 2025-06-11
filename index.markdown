@@ -1,11 +1,16 @@
 ---
 layout: default
 ---
-<h1>What we do for artists</h1>
-<p>ロレム・イプサムは、デザインや出版業界で一般的に使用されているプレースホルダー テキストの一種で、ページ上のスペースを埋めて最終的なコンテンツがどのように見えるかの印象を与えます。日本語のロレム・イプサムは、ローマの哲学者キケロのラテン語のテキストに由来し、1960年代から使用されています。このテキストは意味をなさず、特定の意味を伝えないため、デザイナーは意味のあるコンテンツに気を取られることなく、レイアウトや視覚的な要素に集中できます。</p>
+<h1>ビッグフィータスとは？</h1>
+<p>ビッグフィータス合同会社は、大阪に拠点を置くB2B輸出会社です。日本の漫画家のオリジナル作品を印刷し、アメリカやヨーロッパで販売しています。手頃な価格の限定版プリントには、作家本人がナンバリングとサインを入れています。世界中の漫画ファンは、彼らのユニークな作品を通して、日本の漫画家と繋がることができます。</p>
 
-<h1>Why we do it best</h1>
-<p>プレースホルダー テキストは、デザイナーが実際のコンテンツに気を取られることなくレイアウトを視覚化するために不可欠です。これにより、美学と構造に集中でき、バランスの取れたプレゼンテーションが保証されます。すっきりとしたレイアウトは創造性を高め、タイポグラフィ、色、間隔の実験を容易にします。この方法は、デザイン プロセスを合理化し、関係者がプロジェクトの可能性を思い描くのに役立ちます。</p>
+<h1>お問い合わせ</h1>
+<p><a href="mailto:{{ site.emailurl }}">{{ site.email }}</a>までメールでお問い合わせください。</p>
 
-<h1>How to work with us</h1>
+<hr />
+
+<h1>What is Big Fetus?</h1>
+<p>Big Fetus LLC is a business-to-business export company based in Osaka, Japan. We print Japanese manga artists’ original artwork to distribute in the U.S. and Europe. The artists number and sign the affordable limited edition prints. Worldwide manga fans can connect to artists in Japan through their unique works of art.</p>
+
+<h1>How to contact us</h1>
 <p>Email us at <a href="mailto:{{ site.emailurl }}">{{ site.email }}</a>.</p>
