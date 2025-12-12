@@ -1,34 +1,93 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "ja-JP" }}">
-  <head>
-    <meta charset='utf-8'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/print.css' | relative_url }}" media="print">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<html lang="{{ site.active_lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if site.active_lang == 'ja' %}{{ site.description_ja }}{% else %}{{ site.description_en }}{% endif %}">
 
-{% seo %}
-    {% include head-custom.html %}
-  </head>
-  <body>
-    <div id="container">
-      <div class="inner">
-        <header>
-          <img src="assets/img/logo.svg" class="logo" alt="{{ page.title | default: site.title | default: site.github.repository_name }}"/>
-        </header>
-        <hr />
-        <section id="main_content">
-          {{ content }}
-        </section>
+  <!-- Canonical and hreflang -->
+  <link rel="canonical" href="{{ site.url }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | remove: 'index.html' }}">
+  <link rel="alternate" hreflang="ja" href="{{ site.url }}{{ page.url | remove: 'index.html' }}">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url | remove: 'index.html' }}">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove: 'index.html' }}">
 
-        <footer>
-          Copyright &copy; 2025 {{ site.title | default: site.github.repository_name }}合同会社. All rights reserved.
-        </footer>
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-      </div>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  {% seo %}
+
+  <!-- Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{% if site.active_lang == 'ja' %}{{ site.company.name_ja }}{% else %}{{ site.company.name_en }}{% endif %}",
+    "alternateName": "{% if site.active_lang == 'ja' %}{{ site.company.name_en }}{% else %}{{ site.company.name_ja }}{% endif %}",
+    "url": "{{ site.url }}",
+    "logo": "{{ site.url }}/assets/img/logo.svg",
+    "foundingDate": "{{ site.company.established }}",
+    "founder": {
+      "@type": "Person",
+      "name": "{{ site.company.ceo_en }}"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "url": "{{ site.url }}",
+      "contactType": "customer service"
+    },
+    "description": "{% if site.active_lang == 'ja' %}{{ site.description_ja | strip_newlines }}{% else %}{{ site.description_en | strip_newlines }}{% endif %}",
+    "knowsLanguage": ["ja", "en"]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="{% if site.active_lang == site.default_lang %}/{% else %}/{{ site.active_lang }}/{% endif %}" class="logo">
+        <img src="/assets/img/logo.svg" alt="{{ site.title }}">
+      </a>
+      <nav class="lang-switcher">
+        {% for lang in site.languages %}
+          {% if lang == site.active_lang %}
+            <span class="active">{{ lang | upcase }}</span>
+          {% elsif lang == site.default_lang %}
+            <a {% static_href %}href="/"{% endstatic_href %}>{{ lang | upcase }}</a>
+          {% else %}
+            <a {% static_href %}href="/{{ lang }}/"{% endstatic_href %}>{{ lang | upcase }}</a>
+          {% endif %}
+        {% endfor %}
+      </nav>
     </div>
-  </body>
+  </header>
+
+  <main class="site-content">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ site.time | date: '%Y' }} {% if site.active_lang == 'ja' %}{{ site.company.name_ja }}{% else %}{{ site.company.name_en }}{% endif %}</p>
+    </div>
+  </footer>
+
+  <script>
+  document.querySelectorAll('.email-link').forEach(function(el) {
+    var email = el.dataset.user + '@' + el.dataset.domain;
+    el.href = 'mailto:' + email;
+    el.textContent = email;
+  });
+  </script>
+</body>
 </html>
