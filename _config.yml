@@ -4,6 +4,7 @@ title_en: Big Fetus
 url: https://bigfetus.co.jp
 baseurl: ""
 email: info@bigfetus.co.jp
+google_analytics: G-5P4R8GG6VK
 
 # Company information
 company:
@@ -27,13 +28,7 @@ description_en: >-
 # Polyglot i18n settings
 languages: ["ja", "en"]
 default_lang: "ja"
-exclude_from_localization:
-  [
-    "assets",
-    "CNAME",
-    "robots.txt",
-    "sitemap.xml",
-  ]
+exclude_from_localization: ["assets", "CNAME", "robots.txt", "sitemap.xml"]
 parallel_localization: true
 
 # Build settings
