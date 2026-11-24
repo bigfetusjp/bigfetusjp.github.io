@@ -19,11 +19,10 @@ company:
 
 # SEO
 description_ja: >-
-  ビッグフィータス合同会社は、日本の漫画家作品の海外輸出と、
-  コメディクラブ向け運営サポートサービスを提供しています。
+  ビッグフィータス合同会社は、大阪に拠点を置くB2B輸出会社です。日本の漫画家のオリジナル作品を印刷し、アメリカやヨーロッパで販売しています。
 description_en: >-
-  Big Fetus LLC provides Japanese manga art export services and
-  administrative support for comedy clubs worldwide.
+  Big Fetus LLC is a business-to-business export company based in Osaka, Japan.
+  We print Japanese manga artists’ original artwork to distribute in the U.S. and Europe.
 
 # Polyglot i18n settings
 languages: ["ja", "en"]
