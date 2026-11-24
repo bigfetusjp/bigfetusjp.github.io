@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.3;
   margin-bottom: 0.5em;
   color: var(--color-primary);
+  text-wrap: balance;
 }
 
 h1 { font-size: 2rem; }
@@ -52,6 +53,15 @@ h3 { font-size: 1.25rem; }
 
 p {
   margin-bottom: 1em;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
+/* Break Japanese at phrase boundaries, not between any two characters (Chrome and Edge only) */
+html:lang(ja) {
+  word-break: auto-phrase;
 }
 
 a {
@@ -188,9 +198,16 @@ a:hover {
 /* Strengths/features */
 .strengths-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: calc(var(--spacing-unit) * 1.5);
   margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+/* One or three columns, never two, so the third card is never left alone on a row */
+@media (min-width: 900px) {
+  .strengths-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .strengths-grid:last-child {
