@@ -1,21 +1,15 @@
 # Site settings
 title: ビッグフィータス
-title_en: Big Fetus
 url: https://bigfetus.co.jp
 baseurl: ""
-email: info@bigfetus.co.jp
 google_analytics: G-5P4R8GG6VK
 
 # Company information
 company:
   name_ja: ビッグフィータス合同会社
   name_en: Big Fetus LLC
-  industry_ja: アート輸出・エンターテインメントサービス業
-  industry_en: Art Export & Entertainment Services
   established: 2025-03-14
-  ceo_ja: ジョナサン・アレン
   ceo_en: Jonathan Allen
-  license: N/A
 
 # SEO
 description_ja: >-
