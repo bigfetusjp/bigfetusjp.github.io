@@ -3,14 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{% if site.active_lang == 'ja' %}{{ site.description_ja }}{% else %}{{ site.description_en }}{% endif %}">
+  {% if site.active_lang == 'ja' %}
+    {% assign site_name = site.company.name_ja %}
+    {% assign description = site.description_ja | strip_newlines | escape %}
+    {% assign og_locale = 'ja_JP' %}
+  {% else %}
+    {% assign site_name = site.company.name_en %}
+    {% assign description = site.description_en | strip_newlines | escape %}
+    {% assign og_locale = 'en_US' %}
+  {% endif %}
+  {% capture canonical_url %}{{ site.url }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | remove: 'index.html' }}{% endcapture %}
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site_name }}</title>
+  <meta name="description" content="{{ description }}">
 
   <!-- Canonical and hreflang -->
-  <link rel="canonical" href="{{ site.url }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | remove: 'index.html' }}">
+  <link rel="canonical" href="{{ canonical_url }}">
   <link rel="alternate" hreflang="ja" href="{{ site.url }}{{ page.url | remove: 'index.html' }}">
   <link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url | remove: 'index.html' }}">
-  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove: 'index.html' }}">
+  {% comment %}Polyglot rewrites hrefs on /en/ pages to /en/ unless static_href wraps them.{% endcomment %}
+  <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ site.url }}{{ page.url | remove: 'index.html' }}"{% endstatic_href %}>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site_name }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site_name }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:locale" content="{{ og_locale }}">
+  <meta name="twitter:card" content="summary">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
@@ -26,8 +46,6 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/style.css">
-
-  {% seo %}
 
   <!-- Google Analytics -->
   {% if site.google_analytics and jekyll.environment == 'production' %}

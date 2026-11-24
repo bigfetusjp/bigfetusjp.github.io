@@ -27,7 +27,6 @@ parallel_localization: true
 # Build settings
 plugins:
   - jekyll-polyglot
-  - jekyll-seo-tag
   - jekyll-sitemap
 
 # Exclude from processing
